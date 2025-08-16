@@ -12,9 +12,9 @@ export default function Landing({ showClients = false }) {
                 height="600"
                 className="max-w-full h-auto"
                 style={{
-                  width: '300px', /* Initial size for better mobile display */
+                  width: '400px', /* Increased initial size */
                   height: 'auto',
-                  maxWidth: '600px' /* Maximum size */
+                  maxWidth: '800px' /* Increased maximum size */
                 }}
               />
             </div>

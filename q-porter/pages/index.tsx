@@ -57,9 +57,9 @@ const Home: NextPage = () => {
       <div className="h-full leading-normal text-gray-600 cursor-none">
         <CustomCursor />
         <div
-          className="absolute top-0 left-0 right-0 bg-no-repeat bg-cover shadow-lg -bottom-full brightness-90 filter md:bottom-0 md:bg-center md:brightness-100"
+          className="fixed top-0 left-0 w-full h-full bg-cover bg-center"
           style={{
-            backgroundImage: "url('images/splash.jpeg')",
+            backgroundImage: "url('/images/splash.jpeg')",
             zIndex: -1,
           }}
         />
