@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Tag from '../components/Tag';
 
 import Header from '../components/Header';
 import Landing from '../components/Landing';
@@ -43,6 +44,7 @@ const Home: NextPage = () => {
   }, []);
   return (
     <>
+      <Tag />
       <Head>
         <title>Q-Porter – Hybrid Quantum AI for Port and Airport Logistics</title>
         <meta content="Q-Porter delivers hybrid quantum-classical AI solutions that optimize port and airport logistics, reducing delays and improving throughput with cutting-edge quantum algorithms." name="description" />
