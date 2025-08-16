@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
-      - run: npm ci || npm install
+      - run: npm ci || npm install --legacy-peer-deps
         working-directory: q-porter
       - run: npm run build
         working-directory: q-porter
