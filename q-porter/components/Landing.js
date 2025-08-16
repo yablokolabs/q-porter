@@ -1,0 +1,105 @@
+export default function Landing({ showClients = false }) {
+  return (
+    <section>
+      <div className="max-w-3xl mx-8 md:mx-auto">
+        <div className="my-20 space-y-10 text-center sm:my-16 md:space-y-14">
+          <div className="space-y-5 md:space-y-8">
+            <div className="flex justify-center mb-4">
+              <img 
+                src="/images/q-port-logo.svg" 
+                alt="Q-Porter™" 
+                width="600"
+                height="600"
+                className="max-w-full h-auto"
+                style={{
+                  width: '300px', /* Initial size for better mobile display */
+                  height: 'auto',
+                  maxWidth: '600px' /* Maximum size */
+                }}
+              />
+            </div>
+            <h1 className="text-2xl font-semibold text-white sm:text-4xl md:text-5xl md:text-gray-800">
+              The Quantum Way to Optimal Port & Airport Logistics
+            </h1>
+            <h2 className="text-lg text-gray-100 md:text-2xl md:mx-10 md:text-gray-600">
+              Q-Porter's™ hybrid quantum-classical AI solutions boost throughput,
+              reduce delays, and deliver measurable efficiency gains for port and
+              airport logistics worldwide.
+            </h2>
+          </div>
+          <div className="transition duration-500 ease-in-out transform scale-100 translate-x-0 translate-y-0 opacity-100">
+            <div className="space-y-2">
+              <a
+                href="#get-started"
+                className="px-5 py-2 font-semibold text-gray-200 duration-500 ease-in-out shadow-lg hover:-translate-y-1.5 rounded-2xl md:text-xl md:px-8 md:py-3 bg-gradient-to-br to-purple-600 from-blue-500 hover:bg-gradient-to-br hover:to-blue-500 hover:from-purple-600"
+              >
+                Explore Q-Porter™{' '}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="mb-0.5 h-7 w-7 hidden sm:inline"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </a>
+              <div className="pt-4 text-sm text-gray-200 sm:pt-2 md:text-gray-600">
+                Schedule a demo
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {showClients && (
+        <div className="mt-20 space-y-6 text-center mb-28 md:mt-32">
+          <h1 className="text-lg font-semibold tracking-wide text-center text-gray-100 text-opacity-75 uppercase md:mx-10 md:text-gray-600">
+            Trusted by global logistics leaders
+          </h1>
+          <div className="w-3/5 p-6 mx-auto bg-gray-100 rounded-2xl bg-opacity-70 md:bg-opacity-100 md:p-10">
+            <div className="flex flex-wrap items-center justify-center flex-shrink -mt-6 -ml-6 space-x-6 space-y-6">
+              <img
+                className="h-5 mt-6 ml-6 md:h-8"
+                src="images/stripe.svg"
+                alt=""
+              />
+              <img
+                className="h-7 md:h-5"
+                src="images/stockx.png"
+                alt=""
+              />
+              <img
+                className="h-9 md:h-6"
+                src="images/openai.png"
+                alt=""
+              />
+              <img
+                className="h-5 md:h-8"
+                src="images/moderna.png"
+                alt=""
+              />
+              <img
+                className="h-5 md:h-5"
+                src="images/oracle.png"
+                alt=""
+              />
+              <img
+                className="h-5 md:h-9"
+                src="images/honey.png"
+                alt=""
+              />
+              <img
+                className="h-5 md:h-8"
+                src="images/digitalocean.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
