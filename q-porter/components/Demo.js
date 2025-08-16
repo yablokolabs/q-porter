@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Demo() {
   return (
     <section id="demo" className="py-20 bg-opacity-50 bg-emerald-50">
@@ -27,15 +29,23 @@ export default function Demo() {
         <p className="mt-4 text-lg font-normal lg:max-w-3xl">
           Q-Porter's™ hybrid quantum-classical AI solves complex logistics problems in real-time, optimizing port and airport operations with unprecedented speed and accuracy.
         </p>
-        <img
-          src="images/product.png"
-          className="mt-8 rounded-xl"
-          alt="placeholder"
+        <Image
+          src="/images/product.png"
+          alt="Q-Porter product overview"
+          width={1600}
+          height={900}
+          className="mt-8 rounded-xl w-full h-auto"
+          sizes="(min-width: 1024px) 1024px, 100vw"
+          priority={false}
         />
-        <img
-          src="images/product1.png"
-          className="mt-8 rounded-xl"
-          alt="placeholder"
+        <Image
+          src="/images/product1.png"
+          alt="Q-Porter product details"
+          width={1600}
+          height={900}
+          className="mt-8 rounded-xl w-full h-auto"
+          sizes="(min-width: 1024px) 1024px, 100vw"
+          priority={false}
         />
         <div className="grid grid-cols-1 grid-rows-1 gap-2 mt-4 md:auto-cols-auto md:grid-cols-3">
           <div className="flex flex-col justify-between p-5 transition duration-500 border-2 shadow-md border-tranparent rounded-xl bg-emerald-200 bg-opacity-30 hover:border-emerald-300 hover:shadow-xl md:col-span-2">
