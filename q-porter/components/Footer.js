@@ -32,7 +32,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-green-500"
           >
-            Yabloko Labs Pvt. Ltd.
+            Yabloko Labs.
           </a>
           {' '}All rights reserved.
         </p>
