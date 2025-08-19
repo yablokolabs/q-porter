@@ -22,7 +22,7 @@ export default function Landing({ showClients = false }) {
               The Quantum Way to Optimal Port & Airport Logistics
             </h1>
             <h2 className="text-lg text-gray-100 md:text-2xl md:mx-10 md:text-gray-600">
-              Q-Porter's™ hybrid quantum-classical AI solutions boost throughput,
+              Q-Porter™'s hybrid quantum-classical AI solutions boost throughput,
               reduce delays, and deliver measurable efficiency gains for port and
               airport logistics worldwide.
             </h2>
