@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react';
 
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  const [isHovering, setIsHovering] = useState(true);
   const [isPointer, setIsPointer] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const updatePosition = (e: MouseEvent) => {
+      if (!isInitialized) {
+        setIsInitialized(true);
+      }
       setPosition({ x: e.clientX, y: e.clientY });
       
       // Check if the element being hovered is clickable
@@ -35,8 +39,8 @@ const CustomCursor = () => {
     };
   }, []);
 
-  // Don't render cursor if mouse is not in the viewport
-  if (!isHovering) return null;
+  // Don't render cursor if mouse is not in the viewport and component hasn't been initialized
+  if (!isHovering && isInitialized) return null;
 
   const cursorStyle: React.CSSProperties = {
     position: 'fixed',

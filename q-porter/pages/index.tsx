@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Landing from '../components/Landing';
 import Features from '../components/Features';
 import Demo from '../components/Demo';
+import CombinedCaseStudies from '../components/CombinedCaseStudies';
 import Pricing from '../components/Pricing';
 import Testimonies from '../components/Testimonies';
 import Action from '../components/Action';
@@ -67,6 +68,7 @@ const Home: NextPage = () => {
         <Landing />
         <Features />
         <Demo />
+        <CombinedCaseStudies />
         {/* <Pricing />
         <Testimonies /> */}
         <Action />
