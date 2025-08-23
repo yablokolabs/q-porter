@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -34,6 +34,18 @@ const QPorterCaseStudy: React.FC = () => {
   const [yard, setYard] = useState(50);
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [isSimulating, setIsSimulating] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const runSimulation = async () => {
     setIsSimulating(true);
@@ -61,57 +73,63 @@ const QPorterCaseStudy: React.FC = () => {
   };
 
   const ComparisonTable = () => (
-    <div className="mt-8 overflow-hidden rounded-xl border border-gray-200 shadow-lg">
-      <table className="w-full">
-        <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-          <tr>
-            <th className="px-6 py-4 text-left font-semibold">KPI</th>
-            <th className="px-6 py-4 text-center font-semibold">Classical Planning</th>
-            <th className="px-6 py-4 text-center font-semibold">Q-Porter™ Quantum</th>
-            <th className="px-6 py-4 text-center font-semibold">Improvement</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="border-b bg-white hover:bg-gray-50 transition-colors">
-            <td className="px-6 py-4 font-medium text-gray-900">Throughput (ships/day)</td>
-            <td className="px-6 py-4 text-center text-red-600 font-semibold">{result?.classical}</td>
-            <td className="px-6 py-4 text-center text-green-600 font-semibold">{result?.quantum}</td>
-            <td className="px-6 py-4 text-center text-blue-600 font-semibold">
-              +{((parseFloat(result?.quantum || '0') - parseFloat(result?.classical || '0')) / parseFloat(result?.classical || '1') * 100).toFixed(1)}%
-            </td>
-          </tr>
-          <tr className="border-b bg-gray-50 hover:bg-gray-100 transition-colors">
-            <td className="px-6 py-4 font-medium text-gray-900">Emissions Reduction</td>
-            <td className="px-6 py-4 text-center text-gray-500">Baseline</td>
-            <td className="px-6 py-4 text-center text-green-600 font-semibold">-{result?.emissions_saved}%</td>
-            <td className="px-6 py-4 text-center text-green-600 font-semibold">
-              ↓ {result?.emissions_saved}% CO₂
-            </td>
-          </tr>
-          <tr className="border-b bg-white hover:bg-gray-50 transition-colors">
-            <td className="px-6 py-4 font-medium text-gray-900">Turnaround Time</td>
-            <td className="px-6 py-4 text-center text-red-600 font-semibold">24-48h</td>
-            <td className="px-6 py-4 text-center text-green-600 font-semibold">16-28h</td>
-            <td className="px-6 py-4 text-center text-blue-600 font-semibold">
-              -{result?.turnaround_improvement}% faster
-            </td>
-          </tr>
-          <tr className="bg-gray-50 hover:bg-gray-100 transition-colors">
-            <td className="px-6 py-4 font-medium text-gray-900">Operational Costs</td>
-            <td className="px-6 py-4 text-center text-gray-500">Baseline</td>
-            <td className="px-6 py-4 text-center text-green-600 font-semibold">-{result?.cost_savings}%</td>
-            <td className="px-6 py-4 text-center text-green-600 font-semibold">
-              ${(result?.cost_savings || 0) * 10}K saved/month
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="mt-8">
+      {/* Mobile scroll hint */}
+      <div className="md:hidden text-center text-sm text-gray-500 mb-2">
+        ← Scroll horizontally to see all data →
+      </div>
+      <div className="overflow-x-auto rounded-xl border border-gray-200 shadow-lg">
+        <table className="w-full min-w-[640px]">
+          <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+            <tr>
+              <th className="px-3 md:px-6 py-3 md:py-4 text-left font-semibold text-sm md:text-base">KPI</th>
+              <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">Classical Planning</th>
+              <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">Q-Porter™ Quantum</th>
+              <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">Improvement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b bg-white hover:bg-gray-50 transition-colors">
+              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">Throughput (ships/day)</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-red-600 font-semibold text-sm md:text-base">{result?.classical}</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">{result?.quantum}</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-blue-600 font-semibold text-sm md:text-base">
+                +{((parseFloat(result?.quantum || '0') - parseFloat(result?.classical || '0')) / parseFloat(result?.classical || '1') * 100).toFixed(1)}%
+              </td>
+            </tr>
+            <tr className="border-b bg-gray-50 hover:bg-gray-100 transition-colors">
+              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">Emissions Reduction</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-gray-500 text-sm md:text-base">Baseline</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">-{result?.emissions_saved}%</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
+                ↓ {result?.emissions_saved}% CO₂
+              </td>
+            </tr>
+            <tr className="border-b bg-white hover:bg-gray-50 transition-colors">
+              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">Turnaround Time</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-red-600 font-semibold text-sm md:text-base">24-48h</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">16-28h</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-blue-600 font-semibold text-sm md:text-base">
+                -{result?.turnaround_improvement}% faster
+              </td>
+            </tr>
+            <tr className="bg-gray-50 hover:bg-gray-100 transition-colors">
+              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">Operational Costs</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-gray-500 text-sm md:text-base">Baseline</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">-{result?.cost_savings}%</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
+                ${(result?.cost_savings || 0) * 10}K saved/month
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 
   return (
     <section className="w-full bg-gradient-to-b from-sky-50 via-blue-50 to-white py-16">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -146,12 +164,12 @@ const QPorterCaseStudy: React.FC = () => {
 
         {/* Interactive Simulation */}
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
-            <h3 className="text-2xl font-semibold">Interactive Port Optimization Simulator</h3>
-            <p className="mt-2 opacity-90">Experience the power of quantum-enhanced logistics optimization</p>
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 md:p-6">
+            <h3 className="text-xl md:text-2xl font-semibold">Interactive Port Optimization Simulator</h3>
+            <p className="mt-2 opacity-90 text-sm md:text-base">Experience the power of quantum-enhanced logistics optimization</p>
           </div>
           
-          <div className="p-8">
+          <div className="p-4 md:p-8">
             {/* Input Controls */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="space-y-2">
@@ -237,63 +255,67 @@ const QPorterCaseStudy: React.FC = () => {
             {result && (
               <div className="space-y-8">
                 {/* Chart */}
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <h4 className="text-lg font-semibold mb-4 text-center text-gray-800">
+                <div className="bg-gray-50 rounded-xl p-4 md:p-6">
+                  <h4 className="text-base md:text-lg font-semibold mb-4 text-center text-gray-800">
                     Throughput Comparison
                   </h4>
-                  <Bar
-                    data={{
-                      labels: ["Classical Planning", "Q-Porter™ Quantum Planning"],
-                      datasets: [
-                        {
-                          label: "Ships processed per day",
-                          data: [parseFloat(result.classical), parseFloat(result.quantum)],
-                          backgroundColor: [
-                            "rgba(239, 68, 68, 0.8)",
-                            "rgba(34, 197, 94, 0.8)"
-                          ],
-                          borderColor: [
-                            "rgba(239, 68, 68, 1)",
-                            "rgba(34, 197, 94, 1)"
-                          ],
-                          borderWidth: 2,
-                          borderRadius: 8,
-                        },
-                      ],
-                    }}
-                    options={{
-                      responsive: true,
-                      plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                          backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                          titleColor: 'white',
-                          bodyColor: 'white',
-                        }
-                      },
-                      scales: {
-                        y: { 
-                          beginAtZero: true, 
-                          ticks: { 
-                            font: { size: 12 },
-                            color: '#6B7280'
+                  <div className="w-full h-64 md:h-80">
+                    <Bar
+                      data={{
+                        labels: ["Classical Planning", "Q-Porter™ Quantum Planning"],
+                        datasets: [
+                          {
+                            label: "Ships processed per day",
+                            data: [parseFloat(result.classical), parseFloat(result.quantum)],
+                            backgroundColor: [
+                              "rgba(239, 68, 68, 0.8)",
+                              "rgba(34, 197, 94, 0.8)"
+                            ],
+                            borderColor: [
+                              "rgba(239, 68, 68, 1)",
+                              "rgba(34, 197, 94, 1)"
+                            ],
+                            borderWidth: 2,
+                            borderRadius: 8,
                           },
-                          grid: {
-                            color: 'rgba(0, 0, 0, 0.1)'
+                        ],
+                      }}
+                      options={{
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                          legend: { display: false },
+                          tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: 'white',
+                            bodyColor: 'white',
                           }
                         },
-                        x: { 
-                          ticks: { 
-                            font: { size: 12, weight: 'bold' },
-                            color: '#374151'
+                        scales: {
+                          y: { 
+                            beginAtZero: true, 
+                            ticks: { 
+                              font: { size: isMobile ? 10 : 12 },
+                              color: '#6B7280'
+                            },
+                            grid: {
+                              color: 'rgba(0, 0, 0, 0.1)'
+                            }
                           },
-                          grid: {
-                            display: false
-                          }
+                          x: { 
+                            ticks: { 
+                              font: { size: isMobile ? 9 : 12, weight: 'bold' },
+                              color: '#374151',
+                              maxRotation: isMobile ? 45 : 0
+                            },
+                            grid: {
+                              display: false
+                            }
+                          },
                         },
-                      },
-                    }}
-                  />
+                      }}
+                    />
+                  </div>
                 </div>
 
                 {/* Key Benefits */}

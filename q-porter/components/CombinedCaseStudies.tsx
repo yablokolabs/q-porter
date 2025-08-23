@@ -7,7 +7,7 @@ const CombinedCaseStudies: React.FC = () => {
 
   return (
     <section className="w-full bg-gradient-to-b from-slate-50 to-white py-8">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Tab Navigation */}
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
