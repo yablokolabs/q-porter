@@ -12,12 +12,22 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-white uppercase">Company</h3>
             <ul className="space-y-1">
               <li>
-                <a href="https://yablokolabs.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a
+                  href="https://yablokolabs.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   About
                 </a>
               </li>
               <li>
-                <a href="https://yablokolabs.com/#contact" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                <a
+                  href="https://yablokolabs.com/#contact"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   Contact
                 </a>
               </li>
@@ -25,7 +35,7 @@ export default function Footer() {
           </div>
         </div>
         <p className="mt-8 text-center text-gray-300">
-          &copy; 2025{' '}
+          &copy; 2025{" "}
           <a
             href="https://yablokolabs.com/"
             target="_blank"
@@ -33,8 +43,8 @@ export default function Footer() {
             className="text-green-500"
           >
             Yabloko Labs.
-          </a>
-          {' '}All rights reserved.
+          </a>{" "}
+          All rights reserved.
         </p>
       </div>
     </footer>

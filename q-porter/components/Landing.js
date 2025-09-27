@@ -5,16 +5,16 @@ export default function Landing({ showClients = false }) {
         <div className="my-20 space-y-10 text-center sm:my-16 md:space-y-14">
           <div className="space-y-5 md:space-y-8">
             <div className="flex justify-center mb-4">
-              <img 
-                src="/images/q-port-logo.svg" 
-                alt="Q-Porter™" 
+              <img
+                src="/images/q-port-logo.svg"
+                alt="Q-Porter™"
                 width="600"
                 height="600"
                 className="max-w-full h-auto"
                 style={{
-                  width: '400px', /* Increased initial size */
-                  height: 'auto',
-                  maxWidth: '800px' /* Increased maximum size */
+                  width: "400px", /* Increased initial size */
+                  height: "auto",
+                  maxWidth: "800px", /* Increased maximum size */
                 }}
               />
             </div>
@@ -22,9 +22,8 @@ export default function Landing({ showClients = false }) {
               The Quantum Way to Optimal Port & Airport Logistics
             </h1>
             <h2 className="text-lg text-gray-100 md:text-2xl md:mx-10 md:text-gray-600">
-              Q-Porter™'s hybrid quantum-classical AI solutions boost throughput,
-              reduce delays, and deliver measurable efficiency gains for port and
-              airport logistics worldwide.
+              Q-Porter™'s hybrid quantum-classical AI solutions boost throughput, reduce delays, and deliver measurable
+              efficiency gains for port and airport logistics worldwide.
             </h2>
           </div>
           <div className="transition duration-500 ease-in-out transform scale-100 translate-x-0 translate-y-0 opacity-100">
@@ -33,7 +32,7 @@ export default function Landing({ showClients = false }) {
                 href="#get-started"
                 className="px-5 py-2 font-semibold text-gray-200 duration-500 ease-in-out shadow-lg hover:-translate-y-1.5 rounded-2xl md:text-xl md:px-8 md:py-3 bg-gradient-to-br to-purple-600 from-blue-500 hover:bg-gradient-to-br hover:to-blue-500 hover:from-purple-600"
               >
-                Explore Q-Porter™{' '}
+                Explore Q-Porter™{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -44,7 +43,8 @@ export default function Landing({ showClients = false }) {
                     fillRule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
                     clipRule="evenodd"
-                  ></path>
+                  >
+                  </path>
                 </svg>
               </a>
               <div className="pt-4 text-sm text-gray-200 sm:pt-2 md:text-gray-600">

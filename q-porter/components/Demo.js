@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Demo() {
   return (
@@ -13,8 +13,8 @@ export default function Demo() {
               Experience Quantum-Powered Logistics
             </h1>
             <p className="mx-auto text-xl md:w-2/3 md:text-2xl">
-              Q-Porter's™ hybrid quantum-classical AI transforms port and airport operations, 
-              delivering unprecedented efficiency and cost savings.
+              Q-Porter's™ hybrid quantum-classical AI transforms port and airport operations, delivering unprecedented
+              efficiency and cost savings.
             </p>
           </div>
         </div>
@@ -27,7 +27,8 @@ export default function Demo() {
           Powered by Quantum Computing
         </h2>
         <p className="mt-4 text-lg font-normal lg:max-w-3xl">
-          Q-Porter's™ hybrid quantum-classical AI solves complex logistics problems in real-time, optimizing port and airport operations with unprecedented speed and accuracy.
+          Q-Porter's™ hybrid quantum-classical AI solves complex logistics problems in real-time, optimizing port and
+          airport operations with unprecedented speed and accuracy.
         </p>
         <Image
           src="/images/product.png"
@@ -68,10 +69,11 @@ export default function Demo() {
           <div className="flex flex-col justify-between p-5 transition duration-500 border-2 shadow-md border-tranparent rounded-xl bg-emerald-200 bg-opacity-30 hover:border-emerald-300 hover:shadow-xl">
             <div>
               <h3 className="text-lg font-medium text-gray-900">
-Real-time Decision Making
+                Real-time Decision Making
               </h3>
               <p className="mt-1 text-gray-800 text-md">
-                Process complex logistics scenarios in seconds, not hours. Our hybrid architecture ensures you get quantum-powered insights with the reliability of classical systems.
+                Process complex logistics scenarios in seconds, not hours. Our hybrid architecture ensures you get
+                quantum-powered insights with the reliability of classical systems.
               </p>
             </div>
           </div>
@@ -85,7 +87,8 @@ Real-time Decision Making
           Delivering Measurable Results
         </h2>
         <p className="mt-4 text-lg font-normal lg:max-w-3xl">
-          See how Q-Porter™ has helped leading ports and airports achieve 30-45% improvement in operational efficiency, reduce equipment idle time by up to 60%, and cut carbon emissions by 25% through quantum-powered optimization.
+          See how Q-Porter™ has helped leading ports and airports achieve 30-45% improvement in operational efficiency,
+          reduce equipment idle time by up to 60%, and cut carbon emissions by 25% through quantum-powered optimization.
         </p>
         <div className="grid grid-cols-1 grid-rows-1 gap-2 mt-4 md:auto-cols-auto md:grid-cols-3">
           <div className="flex flex-col justify-between p-5 transition duration-500 border-2 shadow-md border-tranparent rounded-xl bg-emerald-200 bg-opacity-30 hover:border-emerald-300 hover:shadow-xl">
@@ -94,7 +97,8 @@ Real-time Decision Making
                 30%+ Efficiency Gains
               </h3>
               <p className="mt-1 text-gray-800 text-md">
-                Our customers typically see a 30-45% improvement in operational efficiency, with some achieving up to 60% reduction in equipment idle time.
+                Our customers typically see a 30-45% improvement in operational efficiency, with some achieving up to
+                60% reduction in equipment idle time.
               </p>
             </div>
           </div>
@@ -104,7 +108,8 @@ Real-time Decision Making
                 Seamless Integration
               </h3>
               <p className="mt-1 text-gray-800 text-md">
-                Q-Porter™ integrates with your existing TOS, ERP, and IoT infrastructure, providing a unified view of your operations without disrupting current workflows.
+                Q-Porter™ integrates with your existing TOS, ERP, and IoT infrastructure, providing a unified view of
+                your operations without disrupting current workflows.
               </p>
             </div>
           </div>
@@ -114,7 +119,8 @@ Real-time Decision Making
                 Sustainability Impact
               </h3>
               <p className="mt-1 text-gray-800 text-md">
-                Reduce your carbon footprint by up to 25% through optimized equipment routing, reduced idling times, and energy-efficient operations planning.
+                Reduce your carbon footprint by up to 25% through optimized equipment routing, reduced idling times, and
+                energy-efficient operations planning.
               </p>
             </div>
           </div>

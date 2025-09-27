@@ -1,12 +1,12 @@
-import Typed from 'typed.js';
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
+import Typed from "typed.js";
 
 const Element = styled.span`
   text-align: center;
 `;
 
-const words = ['Port.', 'Airport.'];
+const words = ["Port.", "Airport."];
 
 class Typing extends React.Component {
   componentDidMount() {
@@ -16,7 +16,7 @@ class Typing extends React.Component {
       backSpeed: 65,
       loop: true,
       showCursor: true,
-      cursorChar: '|',
+      cursorChar: "|",
     };
     this.typed = new Typed(this.el, options);
   }
@@ -29,7 +29,7 @@ class Typing extends React.Component {
     return (
       <>
         <Element
-          style={{ whiteSpace: 'pre' }}
+          style={{ whiteSpace: "pre" }}
           ref={(el) => {
             this.el = el;
           }}

@@ -1,14 +1,6 @@
-import { useState, useEffect } from "react";
+import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from "chart.js";
+import { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
 
 // Register Chart.js components
 ChartJS.register(
@@ -17,7 +9,7 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 interface AirportSimulationResult {
@@ -41,16 +33,16 @@ const QPorterAirportCaseStudy: React.FC = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const runSimulation = async () => {
     setIsSimulating(true);
-    
+
     // Simulate processing time for realism
     await new Promise(resolve => setTimeout(resolve, 1800));
 
@@ -60,7 +52,7 @@ const QPorterAirportCaseStudy: React.FC = () => {
     const classical_delay = base_delay * (1 + Math.random() * 0.3); // 0-30% variation
     const quantum_improvement = 0.20 + Math.random() * 0.15; // 20-35% improvement
     const quantum_delay = classical_delay * (1 - quantum_improvement);
-    
+
     const emissions_saved = Math.floor(Math.random() * 11) + 18; // 18–28% emission reduction
     const throughput_improvement = Math.floor(Math.random() * 16) + 15; // 15-30% more flights
     const cost_savings = Math.floor(Math.random() * 21) + 25; // 25-45% cost reduction
@@ -74,7 +66,7 @@ const QPorterAirportCaseStudy: React.FC = () => {
       cost_savings,
       fuel_savings,
     });
-    
+
     setIsSimulating(false);
   };
 
@@ -89,48 +81,77 @@ const QPorterAirportCaseStudy: React.FC = () => {
           <thead className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white">
             <tr>
               <th className="px-3 md:px-6 py-3 md:py-4 text-left font-semibold text-sm md:text-base">KPI</th>
-              <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">Classical Scheduling</th>
-              <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">Q-Porter™ Quantum</th>
+              <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">
+                Classical Scheduling
+              </th>
+              <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">
+                Q-Porter™ Quantum
+              </th>
               <th className="px-3 md:px-6 py-3 md:py-4 text-center font-semibold text-sm md:text-base">Improvement</th>
             </tr>
           </thead>
           <tbody>
             <tr className="border-b bg-white hover:bg-gray-50 transition-colors">
-              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">Average Delay (minutes)</td>
-              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-red-600 font-semibold text-sm md:text-base">{result?.classical_delay}</td>
-              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">{result?.quantum_delay}</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">
+                Average Delay (minutes)
+              </td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-red-600 font-semibold text-sm md:text-base">
+                {result?.classical_delay}
+              </td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
+                {result?.quantum_delay}
+              </td>
               <td className="px-3 md:px-6 py-3 md:py-4 text-center text-blue-600 font-semibold text-sm md:text-base">
-                -{((parseFloat(result?.classical_delay || '0') - parseFloat(result?.quantum_delay || '0')) / parseFloat(result?.classical_delay || '1') * 100).toFixed(1)}%
+                -{((parseFloat(result?.classical_delay || "0") - parseFloat(result?.quantum_delay || "0"))
+                  / parseFloat(result?.classical_delay || "1") * 100).toFixed(1)}%
               </td>
             </tr>
             <tr className="border-b bg-gray-50 hover:bg-gray-100 transition-colors">
-              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">Flight Throughput</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">
+                Flight Throughput
+              </td>
               <td className="px-3 md:px-6 py-3 md:py-4 text-center text-gray-500 text-sm md:text-base">Baseline</td>
-              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">+{result?.throughput_improvement}%</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
+                +{result?.throughput_improvement}%
+              </td>
               <td className="px-3 md:px-6 py-3 md:py-4 text-center text-blue-600 font-semibold text-sm md:text-base">
                 +{result?.throughput_improvement}% more flights/hour
               </td>
             </tr>
             <tr className="border-b bg-white hover:bg-gray-50 transition-colors">
-              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">Fuel Consumption</td>
-              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-red-600 font-semibold text-sm md:text-base">High idling</td>
-              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">-{result?.fuel_savings}%</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">
+                Fuel Consumption
+              </td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-red-600 font-semibold text-sm md:text-base">
+                High idling
+              </td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
+                -{result?.fuel_savings}%
+              </td>
               <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
                 ↓ {result?.fuel_savings}% fuel burn
               </td>
             </tr>
             <tr className="border-b bg-gray-50 hover:bg-gray-100 transition-colors">
-              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">CO₂ Emissions</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">
+                CO₂ Emissions
+              </td>
               <td className="px-3 md:px-6 py-3 md:py-4 text-center text-gray-500 text-sm md:text-base">Baseline</td>
-              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">-{result?.emissions_saved}%</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
+                -{result?.emissions_saved}%
+              </td>
               <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
                 ↓ {result?.emissions_saved}% CO₂, NOx
               </td>
             </tr>
             <tr className="bg-white hover:bg-gray-50 transition-colors">
-              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">Operational Costs</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 font-medium text-gray-900 text-sm md:text-base">
+                Operational Costs
+              </td>
               <td className="px-3 md:px-6 py-3 md:py-4 text-center text-gray-500 text-sm md:text-base">Baseline</td>
-              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">-{result?.cost_savings}%</td>
+              <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
+                -{result?.cost_savings}%
+              </td>
               <td className="px-3 md:px-6 py-3 md:py-4 text-center text-green-600 font-semibold text-sm md:text-base">
                 ${(result?.cost_savings || 0) * 15}K saved/month
               </td>
@@ -150,9 +171,10 @@ const QPorterAirportCaseStudy: React.FC = () => {
             ✈️ Case Study: Smart Airport Operations with Q-Porter™
           </h2>
           <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Airports face runway congestion, gate allocation inefficiencies, and ground crew bottlenecks. 
-            Q-Porter™ uses <span className="font-semibold text-indigo-600">Hybrid Quantum + AI optimization</span> to reduce
-            flight delays, fuel consumption, and emissions while maximizing throughput.
+            Airports face runway congestion, gate allocation inefficiencies, and ground crew bottlenecks. Q-Porter™ uses
+            {" "}
+            <span className="font-semibold text-indigo-600">Hybrid Quantum + AI optimization</span>{" "}
+            to reduce flight delays, fuel consumption, and emissions while maximizing throughput.
           </p>
         </div>
 
@@ -165,7 +187,7 @@ const QPorterAirportCaseStudy: React.FC = () => {
               { icon: "🚪", title: "Gate Allocation", desc: "Aircraft waiting, longer turnaround" },
               { icon: "👷", title: "Ground Crew Issues", desc: "Misaligned baggage, fueling schedules" },
               { icon: "🛣️", title: "Taxiway Congestion", desc: "Aircraft burn fuel idling on ground" },
-              { icon: "🌍", title: "Carbon Footprint", desc: "CO₂, NOx from delays, APU usage" }
+              { icon: "🌍", title: "Carbon Footprint", desc: "CO₂, NOx from delays, APU usage" },
             ].map((item, index) => (
               <div key={index} className="bg-white rounded-lg p-4 shadow-md text-center border border-red-100">
                 <div className="text-3xl mb-2">{item.icon}</div>
@@ -180,9 +202,11 @@ const QPorterAirportCaseStudy: React.FC = () => {
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
           <div className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white p-4 md:p-6">
             <h3 className="text-xl md:text-2xl font-semibold">Interactive Airport Optimization Simulator</h3>
-            <p className="mt-2 opacity-90 text-sm md:text-base">Experience quantum-enhanced aviation logistics optimization</p>
+            <p className="mt-2 opacity-90 text-sm md:text-base">
+              Experience quantum-enhanced aviation logistics optimization
+            </p>
           </div>
-          
+
           <div className="p-4 md:p-8">
             {/* Input Controls */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -204,7 +228,7 @@ const QPorterAirportCaseStudy: React.FC = () => {
                   <span>120</span>
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <label className="block text-sm font-semibold text-gray-700">
                   Available Gates
@@ -223,7 +247,7 @@ const QPorterAirportCaseStudy: React.FC = () => {
                   <span>50</span>
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <label className="block text-sm font-semibold text-gray-700">
                   Active Runways
@@ -251,17 +275,30 @@ const QPorterAirportCaseStudy: React.FC = () => {
                 disabled={isSimulating}
                 className="bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transform transition-all duration-200 hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
               >
-                {isSimulating ? (
-                  <span className="flex items-center">
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Running Aviation Quantum Simulation...
-                  </span>
-                ) : (
-                  "✈️ Run Quantum Optimization"
-                )}
+                {isSimulating
+                  ? (
+                    <span className="flex items-center">
+                      <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4">
+                        </circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        >
+                        </path>
+                      </svg>
+                      Running Aviation Quantum Simulation...
+                    </span>
+                  )
+                  : (
+                    "✈️ Run Quantum Optimization"
+                  )}
               </button>
             </div>
 
@@ -283,11 +320,11 @@ const QPorterAirportCaseStudy: React.FC = () => {
                             data: [parseFloat(result.classical_delay), parseFloat(result.quantum_delay)],
                             backgroundColor: [
                               "rgba(239, 68, 68, 0.8)",
-                              "rgba(34, 197, 94, 0.8)"
+                              "rgba(34, 197, 94, 0.8)",
                             ],
                             borderColor: [
                               "rgba(239, 68, 68, 1)",
-                              "rgba(34, 197, 94, 1)"
+                              "rgba(34, 197, 94, 1)",
                             ],
                             borderWidth: 2,
                             borderRadius: 8,
@@ -300,31 +337,31 @@ const QPorterAirportCaseStudy: React.FC = () => {
                         plugins: {
                           legend: { display: false },
                           tooltip: {
-                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                            titleColor: 'white',
-                            bodyColor: 'white',
-                          }
+                            backgroundColor: "rgba(0, 0, 0, 0.8)",
+                            titleColor: "white",
+                            bodyColor: "white",
+                          },
                         },
                         scales: {
-                          y: { 
-                            beginAtZero: true, 
-                            ticks: { 
+                          y: {
+                            beginAtZero: true,
+                            ticks: {
                               font: { size: isMobile ? 10 : 12 },
-                              color: '#6B7280'
+                              color: "#6B7280",
                             },
                             grid: {
-                              color: 'rgba(0, 0, 0, 0.1)'
-                            }
+                              color: "rgba(0, 0, 0, 0.1)",
+                            },
                           },
-                          x: { 
-                            ticks: { 
-                              font: { size: isMobile ? 9 : 12, weight: 'bold' },
-                              color: '#374151',
-                              maxRotation: isMobile ? 45 : 0
+                          x: {
+                            ticks: {
+                              font: { size: isMobile ? 9 : 12, weight: "bold" },
+                              color: "#374151",
+                              maxRotation: isMobile ? 45 : 0,
                             },
                             grid: {
-                              display: false
-                            }
+                              display: false,
+                            },
                           },
                         },
                       }}
@@ -341,7 +378,7 @@ const QPorterAirportCaseStudy: React.FC = () => {
                     <div className="text-green-800 font-semibold text-xs md:text-sm">Lower Emissions</div>
                     <div className="text-xs text-green-600 mt-1">CO₂, NOx reduction</div>
                   </div>
-                  
+
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 md:p-4 text-center">
                     <div className="text-xl md:text-2xl font-bold text-blue-600 mb-1">
                       {result.throughput_improvement}%
@@ -349,7 +386,7 @@ const QPorterAirportCaseStudy: React.FC = () => {
                     <div className="text-blue-800 font-semibold text-xs md:text-sm">Higher Throughput</div>
                     <div className="text-xs text-blue-600 mt-1">More flights/hour</div>
                   </div>
-                  
+
                   <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 md:p-4 text-center">
                     <div className="text-xl md:text-2xl font-bold text-purple-600 mb-1">
                       {result.fuel_savings}%
@@ -357,7 +394,7 @@ const QPorterAirportCaseStudy: React.FC = () => {
                     <div className="text-purple-800 font-semibold text-xs md:text-sm">Fuel Savings</div>
                     <div className="text-xs text-purple-600 mt-1">Less idling</div>
                   </div>
-                  
+
                   <div className="bg-orange-50 border border-orange-200 rounded-lg p-3 md:p-4 text-center">
                     <div className="text-xl md:text-2xl font-bold text-orange-600 mb-1">
                       ${result.cost_savings * 15}K
@@ -383,7 +420,7 @@ const QPorterAirportCaseStudy: React.FC = () => {
               Quantum gate and runway scheduling reduces aircraft ground time through optimal resource allocation.
             </p>
           </div>
-          
+
           <div className="text-center bg-white rounded-xl p-6 shadow-md border border-gray-100">
             <div className="text-4xl mb-4">🌱</div>
             <h4 className="text-xl font-semibold text-gray-900 mb-2">18–28% Lower Fuel Burn</h4>
@@ -391,16 +428,16 @@ const QPorterAirportCaseStudy: React.FC = () => {
               Every optimization plan minimizes taxiing time and idling, reducing CO₂, NOx, and fuel costs.
             </p>
           </div>
-          
+
           <div className="text-center bg-white rounded-xl p-6 shadow-md border border-gray-100">
             <div className="text-4xl mb-4">🎯</div>
             <h4 className="text-xl font-semibold text-gray-900 mb-2">Smart & Sustainable</h4>
             <p className="text-gray-600">
-              GreenScope Aviation enables cleaner airport operations with real-time runway monitoring and emissions tracking.
+              GreenScope Aviation enables cleaner airport operations with real-time runway monitoring and emissions
+              tracking.
             </p>
           </div>
         </div>
-
       </div>
     </section>
   );

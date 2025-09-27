@@ -2,9 +2,9 @@
 module.exports = {
   reactStrictMode: true,
   // Export static HTML for GitHub Pages
-  output: 'export',
+  output: "export",
   images: {
     // Static export requires unoptimized images or external loader
     unoptimized: true,
   },
-}
+};

@@ -66,7 +66,7 @@ export default function Pricing() {
                 href="#"
                 className="px-5 py-2 font-semibold text-gray-800 transition ease-in-out transform bg-white rounded-full shadow-md bg-opacity-70 hover:-translate-y-0.5 hover:bg-opacity-100 focus:outline-none"
               >
-                Get Started{' '}
+                Get Started{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -77,7 +77,8 @@ export default function Pricing() {
                     fillRule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
                     clipRule="evenodd"
-                  ></path>
+                  >
+                  </path>
                 </svg>
               </a>
             </div>
@@ -89,7 +90,7 @@ export default function Pricing() {
               </p>
               <div className="flex items-center justify-center">
                 <h4 className="text-2xl font-semibold text-gray-800 md:text-4xl">
-Regional Hub
+                  Regional Hub
                 </h4>
               </div>
               <h5 className="text-xl font-semibold text-center text-gray-800">
@@ -113,7 +114,7 @@ Regional Hub
                 href="#"
                 className="px-5 py-2 font-semibold text-gray-100 transition duration-300 ease-in-out transform rounded-full shadow bg-gradient-to-t from-sky-800 to-sky-600 hover:-translate-y-1 hover:shadow-lg focus:outline-none"
               >
-                Get Started{' '}
+                Get Started{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -124,7 +125,8 @@ Regional Hub
                     fillRule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
                     clipRule="evenodd"
-                  ></path>
+                  >
+                  </path>
                 </svg>
               </a>
             </div>
@@ -159,7 +161,7 @@ Regional Hub
                 href="#"
                 className="px-5 py-2 font-semibold text-gray-800 transition ease-in-out transform bg-white rounded-full shadow-md bg-opacity-70 hover:-translate-y-0.5 hover:bg-opacity-100 focus:outline-none"
               >
-                Contact Sales{' '}
+                Contact Sales{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -170,7 +172,8 @@ Regional Hub
                     fillRule="evenodd"
                     d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
                     clipRule="evenodd"
-                  ></path>
+                  >
+                  </path>
                 </svg>
               </a>
             </div>

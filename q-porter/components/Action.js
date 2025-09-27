@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import Typing from './Typing';
+import React, { useState } from "react";
+import Typing from "./Typing";
 
 const SuccessPopup = ({ onClose }) => (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
@@ -9,13 +9,25 @@ const SuccessPopup = ({ onClose }) => (
         className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
         aria-label="Close"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
       <div className="text-center">
         <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full">
-          <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            className="w-8 h-8 text-green-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
@@ -35,8 +47,7 @@ export default function Action() {
         id="get-started"
         className="px-10 shadow-2xl py-14 md:py-32 md:text-center"
         style={{
-          background:
-            'radial-gradient(circle, rgb(248 7 89) 21%, rgb(181 61 250) 67%',
+          background: "radial-gradient(circle, rgb(248 7 89) 21%, rgb(181 61 250) 67%",
         }}
       >
         <h1 className="mb-6 text-3xl font-semibold text-center text-white md:text-6xl">
@@ -46,35 +57,35 @@ export default function Action() {
         <h2 className="mb-6 text-xl text-center text-gray-200 md:text-2xl">
           Powering next-gen logistics — Q-Porter™ brings quantum optimization to ports and airports.
         </h2>
-        
+
         <div className="max-w-2xl p-8 mx-auto mb-8 bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl border border-white border-opacity-20">
-          <form 
+          <form
             action="https://formspree.io/f/manbznyq"
             method="POST"
             onSubmit={async (e) => {
               e.preventDefault();
               const form = e.target;
               const formData = new FormData(form);
-              
+
               try {
                 const response = await fetch(form.action, {
-                  method: 'POST',
+                  method: "POST",
                   body: formData,
                   headers: {
-                    'Accept': 'application/json'
-                  }
+                    "Accept": "application/json",
+                  },
                 });
-                
+
                 if (response.ok) {
                   form.reset();
                   setShowSuccess(true);
                 } else {
                   const errorData = await response.json();
-                  throw new Error(errorData.error || 'Form submission failed');
+                  throw new Error(errorData.error || "Form submission failed");
                 }
               } catch (error) {
                 alert(`There was an error: ${error.message}`);
-                console.error('Form submission error:', error);
+                console.error("Form submission error:", error);
               }
             }}
             className="space-y-6"
@@ -91,7 +102,7 @@ export default function Action() {
                   required
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <label htmlFor="email" className="block text-sm font-medium text-white">Work Email</label>
                 <input
@@ -103,7 +114,7 @@ export default function Action() {
                   required
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <label htmlFor="company" className="block text-sm font-medium text-white">Company</label>
                 <input
@@ -115,9 +126,11 @@ export default function Action() {
                   required
                 />
               </div>
-              
+
               <div className="space-y-2">
-                <label htmlFor="volume" className="block text-sm font-medium text-white">Monthly Logistics Volume</label>
+                <label htmlFor="volume" className="block text-sm font-medium text-white">
+                  Monthly Logistics Volume
+                </label>
                 <input
                   type="text"
                   id="volume"
@@ -128,7 +141,7 @@ export default function Action() {
                 />
               </div>
             </div>
-            
+
             <div className="pt-2">
               <button
                 type="submit"
@@ -137,7 +150,7 @@ export default function Action() {
                 Get Started with Q-Porter™
               </button>
             </div>
-            
+
             <p className="mt-4 text-sm text-center text-gray-300">
               Join leading ports and airports optimizing their operations
             </p>

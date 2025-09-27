@@ -16,7 +16,7 @@ export default function Features() {
               </h1>
               <p className="text-xl text-gray-200 md:text-2xl">
                 Our hybrid quantum-classical AI delivers measurable improvements in
-                <span className="font-semibold"> efficiency, throughput, and cost savings</span>{' '}
+                <span className="font-semibold">efficiency, throughput, and cost savings</span>{" "}
                 for port and airport logistics.
               </p>
             </div>
@@ -35,15 +35,15 @@ export default function Features() {
                 strokeLinejoin="round"
                 className="border-[#322e37] bg-gradient-to-b from-[#5b585f] to-[#2d2a33] h-10 w-10 rounded-full border p-2 transition duration-400 group-hover:border-[#00e4ff] group-hover:shadow-[#00e4ff] group-hover:shadow-sm"
               >
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                </path>
               </svg>
               <h3 className="text-xl font-semibold text-white">
                 Quantum Route Optimization
               </h3>
               <p className="text-gray-200">
-                Leverage quantum algorithms to find optimal routes for cargo handling 
-                equipment and vehicles, reducing empty runs and minimizing energy 
-                consumption across your port or airport operations.
+                Leverage quantum algorithms to find optimal routes for cargo handling equipment and vehicles, reducing
+                empty runs and minimizing energy consumption across your port or airport operations.
               </p>
             </div>
             <div className="flex shadow-md hover:shadow-[#00e4ff] flex-col justify-between p-5 transition duration-400 bg-white bg-opacity-20 rounded-xl card-hover group space-y-5">
@@ -66,9 +66,8 @@ export default function Features() {
                 Real-time Resource Allocation
               </h3>
               <p className="text-gray-200">
-                Our AI dynamically assigns personnel, equipment, and dock/gate 
-                resources in real-time, adapting to changing conditions and 
-                reducing bottlenecks in your logistics operations.
+                Our AI dynamically assigns personnel, equipment, and dock/gate resources in real-time, adapting to
+                changing conditions and reducing bottlenecks in your logistics operations.
               </p>
             </div>
             <div className="flex shadow-md hover:shadow-[#00e4ff] flex-col justify-between p-5 transition duration-400 bg-white bg-opacity-20 rounded-xl card-hover group space-y-5">
@@ -93,10 +92,8 @@ export default function Features() {
                 Predictive Maintenance
               </h3>
               <p className="text-gray-200">
-                Minimize downtime with our AI-powered predictive maintenance 
-                system that forecasts equipment failures before they happen, 
-                ensuring maximum uptime for cranes, loaders, and other critical 
-                infrastructure.
+                Minimize downtime with our AI-powered predictive maintenance system that forecasts equipment failures
+                before they happen, ensuring maximum uptime for cranes, loaders, and other critical infrastructure.
               </p>
             </div>
             <div className="flex shadow-md hover:shadow-[#00e4ff] flex-col justify-between p-5 transition duration-400 bg-white bg-opacity-20 rounded-xl card-hover group space-y-5">
@@ -119,9 +116,8 @@ export default function Features() {
                 Customs & Compliance Automation
               </h3>
               <p className="text-gray-200">
-                Streamline customs clearance and regulatory compliance with 
-                AI that processes documentation, identifies potential 
-                issues, and ensures smooth cross-border operations.
+                Streamline customs clearance and regulatory compliance with AI that processes documentation, identifies
+                potential issues, and ensures smooth cross-border operations.
               </p>
             </div>
             <div className="flex shadow-md hover:shadow-[#00e4ff] flex-col justify-between p-5 transition duration-400 bg-white bg-opacity-20 rounded-xl card-hover group space-y-5">
@@ -146,10 +142,8 @@ export default function Features() {
                 Carbon Footprint Reduction
               </h3>
               <p className="text-gray-200">
-                Our optimization algorithms significantly reduce fuel 
-                consumption and emissions while maintaining or improving 
-                operational efficiency, helping you meet sustainability 
-                goals.
+                Our optimization algorithms significantly reduce fuel consumption and emissions while maintaining or
+                improving operational efficiency, helping you meet sustainability goals.
               </p>
             </div>
             <div className="flex shadow-md hover:shadow-[#00e4ff] flex-col justify-between p-5 transition duration-400 bg-white bg-opacity-20 rounded-xl card-hover group space-y-5">
@@ -174,10 +168,8 @@ export default function Features() {
                 Seamless Integration
               </h3>
               <p className="text-gray-200">
-                Q-Porter™ integrates with your existing terminal 
-                operating systems, ERP, and logistics platforms, 
-                ensuring a smooth transition and immediate value 
-                realization without operational disruption.
+                Q-Porter™ integrates with your existing terminal operating systems, ERP, and logistics platforms,
+                ensuring a smooth transition and immediate value realization without operational disruption.
               </p>
             </div>
           </div>

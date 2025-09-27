@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import React from 'react';
+import Head from "next/head";
+import React from "react";
 
 interface TagProps {
   title?: string;
@@ -10,12 +10,12 @@ interface TagProps {
 }
 
 const Tag: React.FC<TagProps> = ({
-  title = 'Q-Porter – Hybrid Quantum AI for Port and Airport Logistics',
+  title = "Q-Porter – Hybrid Quantum AI for Port and Airport Logistics",
   description =
     "Q-Porter delivers hybrid quantum-classical AI solutions that optimize port and airport logistics, reducing delays and improving throughput with cutting-edge quantum algorithms.",
-  url = 'https://q-porter.com',
-  image = '/images/q-port-logo.svg',
-  faviconHref = '/favicon.png',
+  url = "https://q-porter.com",
+  image = "/images/q-port-logo.svg",
+  faviconHref = "/favicon.png",
 }) => {
   return (
     <Head>

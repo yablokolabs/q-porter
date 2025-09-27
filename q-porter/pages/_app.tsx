@@ -1,6 +1,6 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import Script from 'next/script'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       {/* End Cloudflare Web Analytics */}
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
