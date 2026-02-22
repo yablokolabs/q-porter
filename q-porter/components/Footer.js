@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
         </div>
         <p className="mt-8 text-center text-gray-300">
-          &copy; 2025{" "}
+          &copy; 2025-2026{" "}
           <a
             href="https://yablokolabs.com/"
             target="_blank"
